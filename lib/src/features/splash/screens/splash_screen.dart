@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:starter_riverpod/src/core/constants/assets.dart';
-import 'package:starter_riverpod/src/core/constants/colors.dart';
-import 'package:starter_riverpod/src/core/widgets/app_image.dart';
+import 'package:starter_riverpod/src/core/core.dart';
+import 'package:starter_riverpod/src/features/authintication/screens/login_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
